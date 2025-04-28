@@ -1,8 +1,15 @@
 # Instagram Fake ID Detector
 
-![made-with-❤️](https://img.shields.io/badge/Made%20with-Chrome%20Extensions-blue)
+![Made with ❤️](https://img.shields.io/badge/Made%20with-Chrome%20Extensions-blue) ![Version](https://img.shields.io/badge/Version-1.0.0-green)
+
 An AI-powered Chrome Extension designed to **detect fake Instagram profiles** effortlessly.  
-This lightweight tool analyzes Instagram user information and flags suspicious or fake accounts — saving you time and protecting you from scams.
+This lightweight tool analyzes Instagram user information and flags suspicious or fake accounts — saving you time and protecting you from scams..
+
+---
+## ✨ Overview
+
+**Instagram Fake ID Detector** is an intelligent Chrome extension that scans Instagram profiles, analyzes key indicators, and flags suspicious or fake accounts.  
+Perfect for individuals and businesses who want to stay safe from fake identities and scams on Instagram!
 
 ---
 
@@ -58,7 +65,8 @@ This lightweight tool analyzes Instagram user information and flags suspicious o
 
 ---
 
-## 📸 Screenshots
+## 📸 Extension Preview
+Here’s how Instagram Fake ID Detector looks in action!
 
 | Preview |
 |:-------:|
