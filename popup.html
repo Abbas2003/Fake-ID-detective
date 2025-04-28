@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instagram Fake ID Detector</title>
+  <link rel="stylesheet" href="styles/popup.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div class="logo">
+        <div class="logo-icon"></div>
+        <h1>FakeID Detective</h1>
+      </div>
+      <button id="settingsButton" class="icon-button" aria-label="Settings">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+      </button>
+    </header>
+
+    <main>
+      <div id="welcome-screen" class="screen">
+        <div class="welcome-illustration"></div>
+        <h2>Detect Fake Instagram Profiles</h2>
+        <p>Visit any Instagram profile and click the analyze button to check if it's genuine or fake.</p>
+        <button id="analyze-profile" class="primary-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+          Analyze Current Profile
+        </button>
+        <div class="divider">
+          <span>OR</span>
+        </div>
+        <button id="view-history" class="secondary-button">View History</button>
+      </div>
+
+      <div id="loading-screen" class="screen hidden">
+        <div class="loading-spinner"></div>
+        <h2>Analyzing Profile</h2>
+        <p>Our AI is examining various profile factors...</p>
+        <div class="progress-container">
+          <div class="progress-bar"></div>
+        </div>
+        <p class="status-text">Gathering data...</p>
+      </div>
+
+      <div id="result-screen" class="screen hidden">
+        <div class="profile-summary">
+          <div class="profile-image"></div>
+          <div class="profile-info">
+            <h3 class="username">@username</h3>
+            <div class="result-badge">
+              <span class="result-text">Analyzing...</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="score-meter">
+          <div class="score-gauge">
+            <div class="score-needle"></div>
+            <div class="score-value">0%</div>
+          </div>
+          <div class="score-labels">
+            <span>Likely Real</span>
+            <span>Suspicious</span>
+            <span>Likely Fake</span>
+          </div>
+        </div>
+
+        <div class="analysis-factors">
+          <h3>Analysis Factors</h3>
+          <ul class="factors-list">
+            <!-- Factors will be populated by JavaScript -->
+          </ul>
+        </div>
+
+        <div class="action-buttons">
+          <button id="export-result" class="secondary-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Export
+          </button>
+          <button id="analyze-another" class="primary-button">Analyze Another</button>
+        </div>
+      </div>
+
+      <div id="history-screen" class="screen hidden">
+        <div class="screen-header">
+          <h2>Analysis History</h2>
+          <button id="back-from-history" class="icon-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+          </button>
+        </div>
+        <div class="history-list">
+          <!-- History items will be populated by JavaScript -->
+        </div>
+        <div class="empty-history hidden">
+          <div class="empty-illustration"></div>
+          <p>No profiles analyzed yet</p>
+        </div>
+      </div>
+
+      <div id="settings-screen" class="screen hidden">
+        <div class="screen-header">
+          <h2>Settings</h2>
+          <button id="back-from-settings" class="icon-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+          </button>
+        </div>
+        <div class="settings-content">
+          <div class="setting-item">
+            <div class="setting-info">
+              <h3>Dark Mode</h3>
+              <p>Switch between light and dark theme</p>
+            </div>
+            <label class="toggle">
+              <input type="checkbox" id="darkModeToggle">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="setting-item">
+            <div class="setting-info">
+              <h3>Detection Strictness</h3>
+              <p>Adjust how strict the fake detection is</p>
+            </div>
+            <div class="range-wrapper">
+              <input type="range" id="strictnessRange" min="1" max="3" value="2">
+              <div class="range-labels">
+                <span>Lenient</span>
+                <span>Balanced</span>
+                <span>Strict</span>
+              </div>
+            </div>
+          </div>
+          <div class="setting-item">
+            <div class="setting-info">
+              <h3>Clear History</h3>
+              <p>Delete all analyzed profiles history</p>
+            </div>
+            <button id="clearHistoryBtn" class="danger-button">Clear</button>
+          </div>
+        </div>
+        <div class="about-section">
+          <p class="version">Version 1.0.0</p>
+          <p class="copyright">© 2025 FakeID Detective</p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="scripts/popup.js" type="module"></script>
+</body>
+</html>
