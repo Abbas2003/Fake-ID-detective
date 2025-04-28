@@ -1,4 +1,3 @@
-```markdown
 # Instagram Fake ID Detector
 
 ![made-with-❤️](https://img.shields.io/badge/Made%20with-Chrome%20Extensions-blue)
